@@ -1,0 +1,95 @@
+# default layout (can be bsp, stack or float)
+yabai -m config layout bsp
+
+# new window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# on or off (default: off)
+yabai -m config auto_balance on
+
+# set padding
+yabai -m config top_padding 4
+yabai -m config bottom_padding 4
+yabai -m config left_padding 4
+yabai -m config right_padding 4
+yabai -m config window_gap 4
+
+# -- mouse settings --
+
+# center mouse on window with focus
+yabai -m config mouse_follows_focus off
+
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+# when window is dropped in center of another window, swap them (on edges it will split it)
+yabai -m mouse_drop_action swap
+
+# custom space window for regular apps
+yabai -m rule --add app="^ForkLift$" space=1 grid=1:2:0:0:1:1 manage=off
+yabai -m rule --add app="^WezTerm$" space=2
+#yabai -m rule --add app="^(BoltAI|Bear)$" space=3
+#yabai -m rule --add app="^(GoodLinks|Reeder)$" space=4
+yabai -m rule --add app="^stremio$" space=5
+#yabai -m rule --add app="^(Things|Telegram|Music|Podcasts)$" space=6
+yabai -m rule --add app="^Arc$" space=7
+yabai -m rule --add app="^calibre$" space=8
+
+# custom grid for 2-pane space
+yabai -m rule --add app="^BoltAI$" space=3 grid=1:2:0:0:1:1 manage=off
+yabai -m rule --add app="^Bear$" space=3 grid=1:2:1:0:1:1 manage=off
+yabai -m rule --add app="^GoodLinks$" space=4 grid=1:2:0:0:1:1 manage=off
+yabai -m rule --add app="^Reeder$" space=4 grid=1:2:1:0:1:1 manage=off
+
+# custom grid for 4-rec space
+yabai -m rule --add app="^Things$" space=6 grid=4:4:0:0:2:2 manage=off
+yabai -m rule --add app="^Telegram$" space=6 grid=4:4:2:0:2:2 manage=off
+yabai -m rule --add app="^Music$" space=6 grid=4:4:0:2:2:2 manage=off
+yabai -m rule --add app="^Podcasts$" space=6 grid=4:4:2:2:2:2 manage=off
+
+# disable popup for some apps
+yabai -m rule --add label="Arc" app="^Arc$" title="(Settings...|Sunny|General|Profiles|Max|Links|Shortcuts|Icon|Advances)" manage=off
+
+# disable specific apps
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^ClearVPN$" manage=off
+#yabai -m rule --add app="^ForkLift$" manage=off
+yabai -m rule --add app="^LocalSend$" manage=off
+yabai -m rule --add app="^LaunchBar$" manage=off
+yabai -m rule --add app="^TextPal$" manage=off
+yabai -m rule --add app="^Little Snitch$" manage=off
+yabai -m rule --add app="^Hookmark$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^IINA$" manage=off
+yabai -m rule --add app="^Android File Transfer$" manage=off
+yabai -m rule --add app="^Keka$" manage=off
+yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^Grammarly Desktop$" manage=off
+yabai -m rule --add app="^Folx$" manage=off
+yabai -m rule --add app="^Numi$" manage=off
+yabai -m rule --add app="^Paste$" manage=off
+yabai -m rule --add app="^BetterTouchTool$" manage=off
+yabai -m rule --add app="^Archiver$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^GoTiengViet$" manage=off
+yabai -m rule --add app="^CleanMyMac X$" manage=off
+#yabai -m rule --add app="^Arc$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^uBar$" manage=off
+yabai -m rule --add app="^iStat Menus$" manage=off
+yabai -m rule --add app="^Little Snitch Network Monitor$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
+
+
+# add 20 padding to the top and 0 padding to the bottom of every space located on the main display
+yabai -m config external_bar all:0:32
+
+# set path to skhd config file
+skhd -c $HOME/.config/skhd/skhdrc
