@@ -1,7 +1,5 @@
 # My Dotfiles
 
----
-
 ## Usage
 
 - Store all my dotfiles
@@ -33,6 +31,12 @@ Then use GNU Stow to create symlinks
 
 ```
 stow .
+```
+
+In case there are conflicted with new files, use --adopt flag to tell Stow to move all new file to dotfiles folder and create symlinks
+
+```
+stow --adopt .
 ```
 
 ## Guide
